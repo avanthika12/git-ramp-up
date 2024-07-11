@@ -1,3 +1,5 @@
+name: learn-workflow-calls
+run-name: ${{ github.actor }} is learning GitHub Workflows
 on:
   workflow_call:
     inputs:
