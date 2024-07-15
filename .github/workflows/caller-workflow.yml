@@ -6,6 +6,6 @@ on:
       - main  
 jobs:
   trigger-workflow:
-    uses: ./.github/workflows/print-username.yml
+    uses: ./.github/workflows/called-workflow.yml
     with:
       username: 'Avanthika Y'
