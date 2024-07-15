@@ -1,0 +1,27 @@
+
+name: Caller Workflow
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  call-workflow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Called Workflow
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { username } = context.payload.inputs || {};
+            github.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'called-workflow.yml',
+              ref: 'main',  // The branch to run the workflow on
+              inputs: {
+                username: username || 'default-username',  
+              },
+            });
