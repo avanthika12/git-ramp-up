@@ -4,22 +4,8 @@ on:
   push:
     branches:
       - main  
-
 jobs:
-  call-workflow:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Install GitHub CLI
-        run: sudo apt-get install -y gh
-
-      - name: Check out repository
-        uses: actions/checkout@v4  
-
-      - name: Trigger Called Workflow
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
-        run: |
-          gh auth login --with-token <<< ${{ secrets.PAT }}
-          gh workflow run called-workflow.yml -f username="static-username"
-
+  trigger-workflow:
+    uses: ./.github/workflows/print-username.yml
+    with:
+      username: 'Avanthika Y'
