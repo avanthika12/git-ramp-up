@@ -3,7 +3,8 @@ name: Caller Workflow
 on:
   push:
     branches:
-      - main  
+      - main
+      - dev
 jobs:
   trigger-workflow:
     uses: ./.github/workflows/called-workflow.yml
