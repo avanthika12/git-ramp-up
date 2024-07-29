@@ -3,7 +3,6 @@ name: Caller Workflow
 on:
   push:
     branches:
-      - main
       - dev
 jobs:
   trigger-workflow:
