@@ -1,0 +1,11 @@
+name: demo2
+on:
+  push:
+    branches: [ dev ]
+
+jobs:
+  print-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Printing the echo command
+        run: echo I have been triggered from the dev branch
